@@ -1,0 +1,101 @@
+*{
+    font-family: Microsoft Uilnnyl;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{ 
+    background-color: #FFFFFF
+}
+
+.images{
+    position: relative;
+    width: 100%;
+    height: 480px;
+}
+
+#button1{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 36%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+
+#do{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 39.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#re{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 43%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#mi{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 46.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#fa{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#so{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 53.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#la{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 57%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#si{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 60.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#do2{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 64%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
