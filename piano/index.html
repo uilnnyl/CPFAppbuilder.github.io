@@ -31,7 +31,7 @@
 <script>
     var tone = 0;
     setup();
-    cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
+    
 
     function p1() {
         cpf.set("socket d5", 261, 300);
@@ -85,7 +85,11 @@
         cpf.set("socket d5", 1000);
         cpf.set("socket d5", 392, 3000);*/
     }
-    
+    function setup() {
+        if (cpf) {
+            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
+        }
+    }
 </script>
 
 </html>
