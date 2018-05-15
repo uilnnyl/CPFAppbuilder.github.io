@@ -12,17 +12,40 @@ body{
     background-color: #FFFFFF
 }
 
-.images{
-    position: relative;
-    width: 100%;
-    height: 480px;
-}
-
-#b0{
+#keyboard{
     position: absolute;
     height: 304px;
     width: 69px;
     left: 36%;
     bottom: 10px;
     transform: translateX(-50%);
+}
+
+.b0 {
+    height: 200px;
+    width: 11%;
+    padding: 0;
+    border-color: #000;
+    border-width: 0.5px;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.b0:nth-child(even) {
+    background: #d0d0d0;
+}
+
+.b0:nth-child(odd) {
+    background: #FFF;
+}
+
+.b0:hover {
+    color: #FFF;
+    background: #6c6c6c;
+}
+
+#piano {
+    width: 30%;
+    height: 50px;
+    margin: 0 35%;
 }
