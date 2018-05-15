@@ -1,36 +1,28 @@
-* {
-    font-family: Microsoft JhengHei;
+*{
+    font-family: Microsoft Uilnnyl;
 }
 
 html,body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
-.title {
-    width: 100%;
-    text-align: center;
-    margin: 25px auto;
+body{ 
+    background-color: #FFFFFF
 }
 
-#wrap {
-    width: 100%;
-    height: 300px;
+#keyboard{
+    position: absolute;
+    height: 304px;
     font-size: 50%;
-    padding: 0px 5%;
-    margin: 0 auto;
-    font-size: 20px;
+    width: 69px;
+    left: 36%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.piano {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.b0 {
+.p0 {
     height: 200px;
     width: 11%;
     padding: 0;
@@ -38,14 +30,22 @@ html,body {
     border-width: 0.5px;
     box-sizing: border-box;
     margin: 20px 0;
-    background: #ffffff;
 }
-.b0:hover {
+
+.p0:nth-child(even) {
+    background: #d0d0d0;
+}
+
+.p0:nth-child(odd) {
+    background: #FFF;
+}
+
+.p0:hover {
     color: #FFF;
     background: #6c6c6c;
 }
 
-#music {
+#piano {
     width: 30%;
     height: 50px;
     margin: 0 35%;
