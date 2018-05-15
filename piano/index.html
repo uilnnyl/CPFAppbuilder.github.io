@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,58 +10,79 @@
 
     <title>Piano</title>
 </head>
-<body>
-    <div class="images">
-        <button type="button1"><img src="img/piano_do.gif" border="0"></button>
-        <button type="button2"><img src="img/piano_re.gif" border="0"></button>
-        <button type="button3"><img src="img/piano_mi.gif" border="0"></button>
-        <button type="button4"><img src="img/piano_fa.gif" border="0"></button>
-        <button type="button5"><img src="img/piano_so.gif" border="0"></button>
-        <button type="button6"><img src="img/piano_la.gif" border="0"></button>
-        <button type="button7"><img src="img/piano_si.gif" border="0"></button>
-        <button type="button8"><img src="img/piano_do2.gif" border="0"></button>
 
-        
+<body>
+    <div id="keyboard">
+    <div class="pianoo">
+        <button id="button1" class="b0" onclick="b1()">DO</button>
+        <button id="button2" class="b0" onclick="b2()">RE</button>
+        <button id="button3" class="b0" onclick="b3()">MI</button>
+        <button id="button4" class="b0" onclick="b4()">FA</button>
+        <button id="button5" class="b0" onclick="b5()">SO</button>
+        <button id="button6" class="b0" onclick="b6()">LA</button>
+        <button id="button7" class="b0" onclick="b7()">SI</button>
+        <button id="button8" class="b0" onclick="b8()">DO2</button>
 
     </div>
+</div>
     <script>
-     
-      
-       if (piano.set("socket d2",1)) {
-             button1=cpf.set("socket d5", 261, 500);
-             button2=cpf.set("socket d5", 293, 500);
-             button3=cpf.set("socket d5", 329, 500);
-             button4=cpf.set("socket d5", 349, 500);
-             button5=cpf.set("socket d5", 392, 500);
-             button6=cpf.set("socket d5", 440, 500);
-             button7=cpf.set("socket d5", 493, 500);
-             button8=cpf.set("socket d5", 523, 500);
-           
+
+        var tone = 0;
+    setup();
+    function b1() {
+        tone = 1;
+        cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+    }
+    function b2() {
+        tone = 2;
+        cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+    }
+    function b3() {
+        tone = 3;
+        cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+    }
+    function b4() {
+        tone = 4;
+        cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+    }
+    function b5() {
+        tone = 5;
+        cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+    }
+    function b6() {
+        tone = 6;
+        cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+    }
+    function b7() {
+        tone = 7;
+        cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+    }
+    function b8() {
+        tone = 8;
+        cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
+    }
+    function music() {
+        cpf.request('["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 450],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 261, 300]');
+    }
+    function setup() {
+        if (cpf) {
+            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
         }
-        /*if(a2 < 100 || a2 == 0) {
-        drinktime = Date.now();
-        newtemp = temp;
-        cpf.set("socket d2", 1);
-        }else {
-        piano.set("socket d2", 0);
-        if(Date.now() - drinktime >3600000) {
-        cpf.set("socket d5", 261, 500);
-        cpf.set("socket d5", 261, 500);
-        cpf.set("socket d5", 392, 500);
-        cpf.set("socket d5", 392, 500);
-        cpf.set("socket d5", 440, 500);
-        cpf.set("socket d5", 440, 500);
-        cpf.set("socket d5", 392, 500);
-        cpf.set("socket d5", 349, 500);
-        cpf.set("socket d5", 349, 500);
-        cpf.set("socket d5", 329, 500);
-        cpf.set("socket d5", 329, 500);
-        cpf.set("socket d5", 293, 500);
-        cpf.set("socket d5", 293, 500);
-        cpf.set("socket d5", 261, 500);
-        drinktime = Date.now();
-            }
-        }*/
-        </script>
+    }
+    $('.p0').on('touchstart', function (e) {
+        'use strict'; //satisfy code inspectors
+        var link = $(this); //preselect the link
+        if (link.hasClass('hover')) {
+            return true;
+        } else {
+            link.addClass('hover');
+            $('.p0').not(this).removeClass('hover');
+            e.preventDefault();
+            return false; //extra, and to make sure the function has consistent return points
+        }
+    });
+
+    </script>
 </body>
+
 </html>
