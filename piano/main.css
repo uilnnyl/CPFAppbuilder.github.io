@@ -13,13 +13,12 @@ body{
 }
 
 #keyboard{
-    position: absolute;
-    height: 304px;
+    width: 100%;
+    height: 300px;
     font-size: 50%;
-    width: 69px;
-    left: 36%;
-    bottom: 10px;
-    transform: translateX(-50%);
+    padding: 0px 5%;
+    margin: 0 auto;
+    font-size: 20px;
 }
 
 .p0 {
@@ -45,7 +44,7 @@ body{
     background: #6c6c6c;
 }
 
-#piano {
+#music {
     width: 30%;
     height: 50px;
     margin: 0 35%;
