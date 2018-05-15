@@ -12,19 +12,21 @@
 </head>
 
 <body>
-    <div id="keyboard">
-    <div class="pianoo">
-        <button id="button1" class="b0" onclick="b1()">DO</button>
-        <button id="button2" class="b0" onclick="b2()">RE</button>
-        <button id="button3" class="b0" onclick="b3()">MI</button>
-        <button id="button4" class="b0" onclick="b4()">FA</button>
-        <button id="button5" class="b0" onclick="b5()">SO</button>
-        <button id="button6" class="b0" onclick="b6()">LA</button>
-        <button id="button7" class="b0" onclick="b7()">SI</button>
-        <button id="button8" class="b0" onclick="b8()">DO2</button>
+        <h1 class="title">Piano</h1>
 
-    </div>
-</div>
+        <div id="keyboard">
+            <div class="pianoo">
+                <button id="button1" class="b0" onclick="b1()">DO</button>
+                <button id="button2" class="b0" onclick="b2()">RE</button>
+                <button id="button3" class="b0" onclick="b3()">MI</button>
+                <button id="button4" class="b0" onclick="b4()">FA</button>
+                <button id="button5" class="b0" onclick="b5()">SO</button>
+                <button id="button6" class="b0" onclick="b6()">LA</button>
+                <button id="button7" class="b0" onclick="b7()">SI</button>
+                <button id="button8" class="b0" onclick="b8()">DO2</button>
+
+            </div>
+        </div>
     <script>
 
         var tone = 0;
@@ -69,14 +71,14 @@
             cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
         }
     }
-    $('.p0').on('touchstart', function (e) {
+    $('.b0').on('touchstart', function (e) {
         'use strict'; //satisfy code inspectors
         var link = $(this); //preselect the link
         if (link.hasClass('hover')) {
             return true;
         } else {
             link.addClass('hover');
-            $('.p0').not(this).removeClass('hover');
+            $('.b0').not(this).removeClass('hover');
             e.preventDefault();
             return false; //extra, and to make sure the function has consistent return points
         }
