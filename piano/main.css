@@ -21,9 +21,15 @@ body{
     font-size: 20px;
 }
 
+.piano {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
 .p0 {
     height: 200px;
-    width: 50%;
+    width: 11%;
     padding: 0;
     border-color: #000;
     border-width: 0.5px;
