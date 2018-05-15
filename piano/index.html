@@ -23,7 +23,7 @@
             <button id="p6" class="p0" onclick="p6()">La</button>
             <button id="p7" class="p0" onclick="p7()">Si</button>
             <button id="p8" class="p0" onclick="p8()">Do</button>
-            <button id="music" onclick="music(this)">music</button>
+            <button id="p9" onclick="p9()">music</button>
         </div>
     </div>
 </body>
@@ -65,8 +65,7 @@
         cpf.request('["tone_play", 5, 523, 300],["sleep", 300]');
         //cpf.set("socket d5", 523, 300);   
     }
-    function music(event) {
-        console.log(524546);
+    function p9() {
         cpf.request('["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
     }
     function setup() {
