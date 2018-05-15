@@ -33,86 +33,52 @@
 <script>
     var tone = 0;
     setup();
-    /*unction loop() {
-        //console.log(tone);
-        if (cpf) {
-            switch (tone) {
-                case 1:
-                    cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
-                    break;
-                case 2:
-                    cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
-                    break;
-                case 3:
-                    cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
-                    break;
-                case 4:
-                    cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
-                    break;
-                case 5:
-                    cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
-                    break;
-                case 6:
-                    cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
-                    break;
-                case 7:
-                    cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
-                    break;
-                case 8:
-                    cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
-                    break;
-            }
-        }
-    }*/
+
     function p1() {
-        cpf.set("socket d5", 261, 500);
-        /*tone = 1;
-        cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');*/
+        cpf.set("socket d5", 261, 300);
     }
     function p2() {
-        cpf.set("socket d5", 293, 500);
-        /*tone = 2;
-        cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');*/
+        cpf.set("socket d5", 293, 300);
     }
     function p3() {
-        cpf.set("socket d5", 329, 500);
-        //tone = 3;
-        //cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+        cpf.set("socket d5", 329, 300); 
     }
     function p4() {
-        cpf.set("socket d5", 349, 500);
-        //tone = 4;
-        //cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+        cpf.set("socket d5", 349, 300);     
     }
     function p5() {
-        cpf.set("socket d5", 392, 500);
-        //tone = 5;
-        //cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+        cpf.set("socket d5", 392, 300);     
     }
     function p6() {
-        cpf.set("socket d5", 440, 500);
-       // tone = 6;
-       // cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+        cpf.set("socket d5", 440, 300);     
     }
     function p7() {
-        cpf.set("socket d5", 493, 500);
-       // tone = 7;
-      //  cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+        cpf.set("socket d5", 493, 300);
     }
     function p8() {
-        cpf.set("socket d5", 523, 500);
-       // tone = 8;
-       // cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
+        cpf.set("socket d5", 523, 300);   
     }
     function music() {
-        cpf.request('["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 450],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 261, 300]');
+        cpf.set("socket d5", 392, 300);
+        cpf.set("socket d5", 329, 300); 
+        cpf.set("socket d5", 329, 300);  
+        cpf.set("socket d5", 349, 300); 
+        cpf.set("socket d5", 293, 300);
+        cpf.set("socket d5", 293, 300);
+        cpf.set("socket d5", 261, 300);
+        cpf.set("socket d5", 293, 300);
+        cpf.set("socket d5", 329, 300); 
+        cpf.set("socket d5", 349, 300);  
+        cpf.set("socket d5", 392, 300);  
+        cpf.set("socket d5", 392, 300);  
+        cpf.set("socket d5", 392, 300);  
     }
     function setup() {
         if (cpf) {
             cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
         }
     }
-    $('.p0').on('touchstart', function (e) {
+    /*$('.p0').on('touchstart', function (e) {
         'use strict'; //satisfy code inspectors
         var link = $(this); //preselect the link
         if (link.hasClass('hover')) {
@@ -123,7 +89,7 @@
             e.preventDefault();
             return false; //extra, and to make sure the function has consistent return points
         }
-    });
+    });*/
 //cpf.request('["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 300],["tone_play", 6, 493, 300],["sleep", 300],["tone_play", 6, 349, 523]');
 //261 - Do
 //293 - Re
