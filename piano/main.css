@@ -41,7 +41,7 @@ html,body {
 }
 
 .p0:nth-child(even) {
-    background: #d0d0d0;
+    background: #30D5C8;
 }
 
 .p0:nth-child(odd) {
