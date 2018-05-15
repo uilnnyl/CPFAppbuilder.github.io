@@ -8,59 +8,91 @@
     <link href="main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-    <title>Piano</title>
 </head>
 
 <body>
-        <h1 class="title">Piano</h1>
+    <h1 class="title">Piano</h1>
 
-        <div id="keyboard">
-            <div class="piano">
-                <button id="button1" class="b0" onclick="b1()">DO</button>
-                <button id="button2" class="b0" onclick="b2()">RE</button>
-                <button id="button3" class="b0" onclick="b3()">MI</button>
-                <button id="button4" class="b0" onclick="b4()">FA</button>
-                <button id="button5" class="b0" onclick="b5()">SO</button>
-                <button id="button6" class="b0" onclick="b6()">LA</button>
-                <button id="button7" class="b0" onclick="b7()">SI</button>
-                <button id="button8" class="b0" onclick="b8()">DO2</button>
-
-            </div>
+    <div id="wrap">
+        <div class="piano">
+            <button id="p1" class="p0" onclick="p1()">Do</button>
+            <button id="p2" class="p0" onclick="p2()">Re</button>
+            <button id="p3" class="p0" onclick="p3()">Mi</button>
+            <button id="p4" class="p0" onclick="p4()">Fa</button>
+            <button id="p5" class="p0" onclick="p5()">So</button>
+            <button id="p6" class="p0" onclick="p6()">La</button>
+            <button id="p7" class="p0" onclick="p7()">Si</button>
+            <button id="p8" class="p0" onclick="p8()">Do</button>
+            <p>
+                <button id="music" onclick="music()">music</button>
+            </p>
         </div>
-    <script>
+    </div>
+</body>
 
-        var tone = 0;
+<script>
+    var tone = 0;
     setup();
-    function b1() {
+    /*unction loop() {
+        //console.log(tone);
+        if (cpf) {
+            switch (tone) {
+                case 1:
+                    cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+                    break;
+                case 2:
+                    cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+                    break;
+                case 3:
+                    cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+                    break;
+                case 4:
+                    cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+                    break;
+                case 5:
+                    cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+                    break;
+                case 6:
+                    cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+                    break;
+                case 7:
+                    cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+                    break;
+                case 8:
+                    cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
+                    break;
+            }
+        }
+    }*/
+    function p1() {
         tone = 1;
         cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
     }
-    function b2() {
+    function p2() {
         tone = 2;
         cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
     }
-    function b3() {
+    function p3() {
         tone = 3;
         cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
     }
-    function b4() {
+    function p4() {
         tone = 4;
         cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
     }
-    function b5() {
+    function p5() {
         tone = 5;
         cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
     }
-    function b6() {
+    function p6() {
         tone = 6;
         cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
     }
-    function b7() {
+    function p7() {
         tone = 7;
         cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
     }
-    function b8() {
+    function p8() {
         tone = 8;
         cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
     }
@@ -72,20 +104,27 @@
             cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
         }
     }
-    $('.b0').on('touchstart', function (e) {
+    $('.p0').on('touchstart', function (e) {
         'use strict'; //satisfy code inspectors
         var link = $(this); //preselect the link
         if (link.hasClass('hover')) {
             return true;
         } else {
             link.addClass('hover');
-            $('.b0').not(this).removeClass('hover');
+            $('.p0').not(this).removeClass('hover');
             e.preventDefault();
             return false; //extra, and to make sure the function has consistent return points
         }
     });
-
-    </script>
-</body>
+//cpf.request('["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 300],["tone_play", 6, 493, 300],["sleep", 300],["tone_play", 6, 349, 523]');
+//261 - Do
+//293 - Re
+//329 - Mi
+//349 - Fa
+//392 - So
+//440 - La
+//493 - Si
+//523 - Do
+</script>
 
 </html>

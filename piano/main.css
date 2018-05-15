@@ -1,18 +1,21 @@
-*{
-    font-family: Microsoft Uilnnyl;
+* {
+    font-family: Microsoft JhengHei;
 }
 
 html,body {
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
-body{ 
-    background-color: #FFFFFF
+.title {
+    width: 100%;
+    text-align: center;
+    margin: 25px auto;
 }
 
-#keyboard{
+#wrap {
     width: 100%;
     height: 300px;
     font-size: 50%;
@@ -21,7 +24,13 @@ body{
     font-size: 20px;
 }
 
-.b0 {
+.piano {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.p0 {
     height: 200px;
     width: 11%;
     padding: 0;
@@ -31,20 +40,20 @@ body{
     margin: 20px 0;
 }
 
-.b0:nth-child(even) {
+.p0:nth-child(even) {
     background: #d0d0d0;
 }
 
-.b0:nth-child(odd) {
+.p0:nth-child(odd) {
     background: #FFF;
 }
 
-.b0:hover {
+.p0:hover {
     color: #FFF;
     background: #6c6c6c;
 }
 
-#piano {
+#music {
     width: 30%;
     height: 50px;
     margin: 0 35%;
