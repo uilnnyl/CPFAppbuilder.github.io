@@ -1,101 +1,60 @@
-*{
-    font-family: Microsoft Uilnnyl;
+* {
+    font-family: Microsoft JhengHei;
 }
 
 html,body {
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
-body{ 
-    background-color: #FFFFFF
-}
-
-.images{
-    position: relative;
+.title {
     width: 100%;
-    height: 480px;
+    text-align: center;
+    margin: 25px auto;
 }
 
-#button1{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 36%;
-    bottom: 10px;
-    transform: translateX(-50%);
+#keyboard {
+    width: 100%;
+    height: 300px;
+    font-size: 50%;
+    padding: 0px 5%;
+    margin: 0 auto;
+    font-size: 20px;
 }
 
-
-#do{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 39.5%;
-    bottom: 10px;
-    transform: translateX(-50%);
+.piano {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
 }
 
-#re{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 43%;
-    bottom: 10px;
-    transform: translateX(-50%);
+.p0 {
+    height: 200px;
+    width: 11%;
+    padding: 0;
+    border-color: #000;
+    border-width: 0.5px;
+    box-sizing: border-box;
+    margin: 20px 0;
 }
 
-#mi{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 46.5%;
-    bottom: 10px;
-    transform: translateX(-50%);
+.p0:nth-child(even) {
+    background: #30D5C8;
 }
 
-#fa{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 50%;
-    bottom: 10px;
-    transform: translateX(-50%);
+.p0:nth-child(odd) {
+    background: #FFF;
 }
 
-#so{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 53.5%;
-    bottom: 10px;
-    transform: translateX(-50%);
+.p0:hover {
+    color: #FFF;
+    background: #6c6c6c;
 }
 
-#la{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 57%;
-    bottom: 10px;
-    transform: translateX(-50%);
-}
-
-#si{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 60.5%;
-    bottom: 10px;
-    transform: translateX(-50%);
-}
-
-#do2{
-    position: absolute;
-    height: 304px;
-    width: 69px;
-    left: 64%;
-    bottom: 10px;
-    transform: translateX(-50%);
+#p9 {
+    width: 30%;
+    height: 50px;
+    margin: 0 35%;
 }
