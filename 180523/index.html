@@ -44,20 +44,20 @@
     //     }, 200)
     // }
     function GetRecognizeResult(Result, Type) {
-        if (Result.includes("好暗")|| Result.includes("好的")){
+        if (Result.includes("好暗")){
             document.getElementById("words").innerHTML = Result;
-            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 1);
-            cpf.request('["grove_setColorRGB", 255, 0, 0]');
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 2);
+            cpf.set("rgb led", 255, 0, 0);
             cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
-        } else if (Result.includes("好亮")|| Result.includes("好的")) {
+        } else if (Result.includes("好亮")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
-            cpf.request('["grove_setColorRGB", 0, 0, 0]');
+            cpf.set("rgb led", 0, 0, 0);
             cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
         } else if(Result.includes("好無聊")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您播放音樂了", 1, 1);
-            cpf.request('["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 500],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 600],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
+            cpf.request('[["sleep", 1500],"tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 500],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 600],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
         } 
     }
         /*if (Result.includes("呼吸燈")) {
