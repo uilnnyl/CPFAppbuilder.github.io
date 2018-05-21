@@ -47,11 +47,13 @@
         if (Result.includes("好暗")){
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 1);
-            cpf.set("white led", 1);
+            cpf.request('["grove_setColorRGB", 255, 0, 0]');
+            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
         } else if (Result.includes("好亮")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
-            cpf.set("white led", 0);
+            cpf.request('["grove_setColorRGB", 0, 0, 0]');
+            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
         } else if(Result.includes("好無聊")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您播放音樂了", 1, 1);
