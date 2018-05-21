@@ -44,37 +44,25 @@
     //     }, 200)
     // }
     function GetRecognizeResult(Result, Type) {
-        if (Result.includes("好暗")){
+        if(Result.includes("有點熱")){
             document.getElementById("words").innerHTML = Result;
-            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 2);
-            cpf.request('["grove_setColorRGB",0, 255, 0, 0]');
-
-        } else if (Result.includes("好亮")) {
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開弱風了", 1, 2);
+            cpf.request('["analogWrite", 6, 100]');
+        } else if(Result.includes("太熱了")){
             document.getElementById("words").innerHTML = Result;
-            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
-            cpf.request('["grove_setColorRGB",0, 0, 0, 0]');
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開強風了", 1, 2);
+            cpf.request('["analogWrite", 6, 200]');
+        } else if(Result.includes("不熱了")) {
+            document.getElementById("words").innerHTML = Result;
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關電扇了", 1, 1);
+            cpf.request('["analogWrite", 6, 0]');
         } else if(Result.includes("好無聊")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您播放音樂了", 1, 1);
-            cpf.request('["sleep", 1500],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 500],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 600],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
+            cpf.request('["sleep", 1600],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 500],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 600],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
         } 
     }
-        /*if (Result.includes("呼吸燈")) {
-            cpf.request('["grove_rgblcd_clear"]');
-            cpf.request('["grove_rgblcd_print", 0, 0, "light on"]');
-            for (i = 0; i < 255; i += 10) {
-                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
-            }
-            for (i = 255; i > 0; i -= 10) {
-                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
-            }
-            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
-        } else if (Result.includes("好熱")|| Result.includes("我知道你熱")) {
-            document.getElementById("words").innerHTML = Result;
-            cpf.SetSpeech("On", "cmn-Hant-TW", "風扇來囉", 1, 2);
-            for (i = 0; i < 255; i += 10) {
-                cpf.request('["analogWrite", 6, ' + i + ']');
-            }
+        /*
         } else if (Result.includes("好冷") || Result.includes("如果你冷")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關電扇了", 1, 1);
