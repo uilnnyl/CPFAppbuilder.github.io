@@ -50,12 +50,10 @@
             for (i = 0; i < 255; i += 10) {
                 cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
             }
-            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
         } else if (Result.includes("好亮")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
             cpf.request('["grove_setColorRGB", 0, 0, 0, ]');
-            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
         } else if(Result.includes("好無聊")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您播放音樂了", 1, 1);
