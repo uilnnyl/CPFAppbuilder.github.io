@@ -15,7 +15,83 @@
     <p id="words">none</p>
 
 <script>
-    var i;
+        var i;
+    var clickbtn = document.getElementById("clickbtn");
+    setup();
+    cpf.request('["grove_setColorRGB", 0, 0, 0, 0]');
+    cpf.request('["grove_rgblcd_set_rgb", 0, 0, 0]');
+    cpf.request('["analogWrite", 6, 0]');
+    // cpf.request('["grove_rgblcd_print", 0, 1, "Hello World"]');
+    clickbtn.addEventListener('click', function (event) {
+        cpf.initSpeechRecognition("cmn-Hant-TW");
+    });
+    // function GetRecognitionListenStatus(Status){
+    // 　　　console.log('Listen status = ' + Status);
+    // 　　　if (Status == "true"){
+    // 　　　　　//do somethining
+    // 　　　}else{
+    // 　　　　　//do somethining
+    // 　　　}
+    // }
+    // function ForLoop() {
+    //     setTimeout(function () {
+    //         document.getElementById("light").innerHTML = i;
+    //         cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
+    //         i+=5;
+    //         if (i < 255) {
+    //             ForLoop();
+    //         } else if(i == 255) ForLoop2();
+    //     }, 200)
+    // }
+    function GetRecognizeResult(Result, Type) {
+        if (Result.includes("呼吸燈")) {
+            cpf.request('["grove_rgblcd_clear"]');
+            cpf.request('["grove_rgblcd_print", 0, 0, "light on"]');
+            for (i = 0; i < 255; i += 10) {
+                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
+            }
+            for (i = 255; i > 0; i -= 10) {
+                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
+            }
+            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
+        } else if (Result.includes("好熱")|| Result.includes("我知道你熱")) {
+            document.getElementById("words").innerHTML = Result;
+            cpf.SetSpeech("On", "cmn-Hant-TW", "風扇來囉", 1, 2);
+            for (i = 0; i < 255; i += 10) {
+                cpf.request('["analogWrite", 6, ' + i + ']');
+            }
+        } else if (Result.includes("好冷") || Result.includes("如果你冷")) {
+            document.getElementById("words").innerHTML = Result;
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關電扇了", 1, 1);
+            cpf.request('["analogWrite", 6, 0]');
+        } else if (Result.includes("日期")) {
+            var Today = new Date();
+            document.getElementById("words").innerHTML =
+                "今天日期是 " + Today.getFullYear() + " 年 "
+                + (Today.getMonth() + 1) + " 月 " + Today.getDate() + " 日";
+            cpf.SetSpeech("On", "cmn-Hant-TW", "今天日期是 " + Today.getFullYear() + " 年 " + (Today.getMonth() + 1) + " 月 " + Today.getDate() + " 日", 1, 1);
+            cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
+            cpf.request('["grove_rgblcd_clear"]');
+            cpf.request('["grove_rgblcd_print", 0, 1, ' + Today.getFullYear().toString + " / " + (Today.getMonth().toString + 1) + " / " + Today.getDate().toString +']');
+        } else if (Result.includes("幾點")) {
+            var Today = new Date();
+            document.getElementById("words").innerHTML =
+                "現在時間是 " + Today.getHours() + ":" + Today.getMinutes();
+            cpf.SetSpeech("On", "cmn-Hant-TW", "現在時間是 " + Today.getHours() + ":" + Today.getMinutes(), 1, 1);
+            cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
+            cpf.request('["grove_setColorRGB", 0, 0, 0, 255]');
+        } else {
+            cpf.request('["grove_rgblcd_set_rgb", 0, 0, 0]');
+            cpf.request('["grove_rgblcd_clear"]');
+            cpf.request('["grove_rgblcd_print", 0, 0, "ready"]');
+            document.getElementById("words").innerHTML = "ready " + Result;
+        }
+    }
+    function setup() {
+        if (cpf)
+            cpf.setPinMode('["resetPin"],["grove_rgblcd_begin", 16, 2], ["setPinMode", "digital", 6, "PWM"], ["grove_newChainableLED",7, 8, 1]');
+    }
+    /*var i;
     var clickbtn = document.getElementById("clickbtn");
     setup();
     // cpf.request('["grove_rgblcd_print", 0, 1, "Hello World"]');
@@ -40,7 +116,7 @@
     function setup() {
         if (cpf)
             cpf.setPinMode('["resetPin"],["setPinMode", "digital", 5, "TONE"], ["grove_newChainableLED",7, 8, 1]');
-    }
+    }*/
 </script>
 </body>
 
