@@ -14,48 +14,16 @@
     <br/>
     <p id="words">none</p>
 
-
 <script>
     var i;
     var clickbtn = document.getElementById("clickbtn");
     setup();
-    cpf.request('["grove_setColorRGB", 0, 0, 0, 0]');
-    cpf.request('["grove_rgblcd_set_rgb", 0, 0, 0]');
-    cpf.request('["analogWrite", 6, 0]');
     // cpf.request('["grove_rgblcd_print", 0, 1, "Hello World"]');
     clickbtn.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
     });
-    // function GetRecognitionListenStatus(Status){
-    // 　　　console.log('Listen status = ' + Status);
-    // 　　　if (Status == "true"){
-    // 　　　　　//do somethining
-    // 　　　}else{
-    // 　　　　　//do somethining
-    // 　　　}
-    // }
-    // function ForLoop() {
-    //     setTimeout(function () {
-    //         document.getElementById("light").innerHTML = i;
-    //         cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
-    //         i+=5;
-    //         if (i < 255) {
-    //             ForLoop();
-    //         } else if(i == 255) ForLoop2();
-    //     }, 200)
-    // }
     function GetRecognizeResult(Result, Type) {
-        if (Result.includes("呼吸燈")) {
-            cpf.request('["grove_rgblcd_clear"]');
-            cpf.request('["grove_rgblcd_print", 0, 0, "light on"]');
-            for (i = 0; i < 255; i += 10) {
-                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
-            }
-            for (i = 255; i > 0; i -= 10) {
-                cpf.request('["grove_setColorRGB", 0, 0, 0, ' + i + ']');
-            }
-            cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
-        } else if (Result.includes("好暗")){
+        if (Result.includes("好暗")){
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 1);
             cpf.set("white led", 1);
@@ -63,16 +31,15 @@
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
             cpf.set("white led", 0);
-        } else {
-            cpf.request('["grove_rgblcd_set_rgb", 0, 0, 0]');
-            cpf.request('["grove_rgblcd_clear"]');
-            cpf.request('["grove_rgblcd_print", 0, 0, "ready"]');
-            document.getElementById("words").innerHTML = "ready " + Result;
-        }
+        } else (Result.includes("好無聊")) {
+            document.getElementById("words").innerHTML = Result;
+            cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您播放音樂了", 1, 1);
+            cpf.request('["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 500],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 600],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
+        } 
     }
     function setup() {
         if (cpf)
-            cpf.setPinMode('["resetPin"],["grove_rgblcd_begin", 16, 2], ["setPinMode", "digital", 6, "PWM"], ["grove_newChainableLED",7, 8, 1]');
+            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 5, "TONE"], ["grove_newChainableLED",7, 8, 1]');
     }
 </script>
 </body>
