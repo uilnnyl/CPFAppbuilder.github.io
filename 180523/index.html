@@ -44,12 +44,12 @@
     //     }, 200)
     // }
     function GetRecognizeResult(Result, Type) {
-        if (Result.includes("好暗")){
+        if (Result.includes("好暗")|| Result.includes("好的")){
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開燈了", 1, 1);
             cpf.request('["grove_setColorRGB", 255, 0, 0]');
             cpf.SetSpeech("Off", "cmn-Hant-TW", Result, 1, 2);
-        } else if (Result.includes("好亮")) {
+        } else if (Result.includes("好亮")|| Result.includes("好的")) {
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您關燈了", 1, 1);
             cpf.request('["grove_setColorRGB", 0, 0, 0]');
