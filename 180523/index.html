@@ -47,7 +47,7 @@
         if(Result.includes("有點熱")){
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開弱風了", 1, 2);
-            cpf.request('["analogWrite", 6, 100]');
+            cpf.request('["analogWrite", 6, 110]');
         } else if(Result.includes("太熱了")){
             document.getElementById("words").innerHTML = Result;
             cpf.SetSpeech("On", "cmn-Hant-TW", "已幫您開強風了", 1, 2);
