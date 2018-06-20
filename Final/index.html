@@ -38,9 +38,10 @@
             setTimeout(loop, 1000);
         }
         loop();
-
-        function feedControl(){
-            cpf.request('["analogWrite",4,' + Math.abs(degree-180) + ']');
+        
+        //飼料盒角度
+        function feedControl(){ 
+            cpf.request('["analogWrite", 4 , 90 ');
         }
         /*function waterControl(status) //control 
         {
