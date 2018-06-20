@@ -14,20 +14,18 @@
     <p id="words">none</p>
 
 <script>
-    ui.set("title","Auto Mode");
+    
 
     var value = cpf.get("temperature sensor");
     var celsius = toCelsius(value);
-    ui.set("temperature sensor", celsius);
+    cpf.set("temperature sensor", celsius);
 
     if(celsius <=28){
-        ui.set("fan",0);
         cpf.set("fan",0);
-        document.getElementById("words").innerHTML = Result;
+        document.getElementById("words");
     }else {
-        ui.set("fan", 200);
         cpf.set("fan", 200);
-        document.getElementById("words").innerHTML = Result;
+        document.getElementById("words");
     }
 
     cpf.repeat();
