@@ -41,7 +41,8 @@
         
         //飼料盒角度
         function feedControl(){ 
-            cpf.request('["analogWrite", 4 , 90 ');
+            cpf.request('["servo_pos_speed", 4, 90, 30]');
+            //cpf.request('["analogWrite", 4 , 90 ');
         }
         /*function waterControl(status) //control 
         {
@@ -56,7 +57,7 @@
         }
         function setup() {
             if (cpf) {
-                cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "digital", 4, "SERVO"]');
+                cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "digital", 4, "SERVO"],["servo_init", 4, 90, 900, 2100]');
         }
     }
    
