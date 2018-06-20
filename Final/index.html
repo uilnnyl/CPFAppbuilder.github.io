@@ -14,11 +14,9 @@
     <p id="words">none</p>
 
 <script>
-    
-
     var value = cpf.get("temperature sensor");
     var celsius = toCelsius(value);
-    cpf.set("temperature sensor", celsius);
+    cpf.set("value", celsius);
 
     if(celsius <=28){
         cpf.set("fan",0);
