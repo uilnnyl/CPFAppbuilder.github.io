@@ -5,37 +5,52 @@
     <title>Automatic Pets Cage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  
+    <h3>現在溫度：<span id="temp">none</span>。c</h3>
     <br/>
-    <p id="words">none</p>
+    
 
 <script>
-    var value = cpf.get("temperature sensor");
-    var celsius = toCelsius(value);
-    cpf.set("temperature sensor", celsius);
 
-    if(celsius <=28){
-        cpf.set("fan",0);
-        document.getElementById("words");
-    }else {
-        cpf.set("fan", 200);
-        document.getElementById("words");
-    }
-
-    cpf.repeat();
-
-    function toCelsius(value){
-        var resistance= parseFloat((1023-value)*10000/value);
-        var temperature= 1/(Math.log(resistance/10000)/3975+1/298.15)-273.15;
-
-    return temperature.toFixed(2);
-    }
-
-
+     setup();
+     function loop() {
+            if (cpf) {
+                //tempdata get
+                tempdata = cpf.get("socket a1");
+                celsius = toCelsius(tempdata);
+                document.getElementById("temp").innerHTML = celsius; //顯示在頁面上
+                
+                if (celsius > 28) //temp control fan
+                {
+                    cpf.request('["analogWrite",3,200]');
+                }
+                else {
+                    cpf.request('["analogWrite",3,0]'); 
+                }
+            }
+            setTimeout(loop, 1000);
+        }
+        loop();
+        /*function waterControl(status) //control 
+        {
+            //cpf.set("socket d4",ststus);//可擇一
+            cpf.request('["analogWrite",4,' + status + ']');
+        }*/
+        // Temperature
+        function toCelsius(value) {
+            var resistance = parseFloat((1023 - value) * 10000 / value);
+            var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+            return temperature.toFixed(2);
+        }
+        function setup() {
+            if (cpf) {
+                cpf.setPinMode('["resetPin"],["setPinMode","digital",4,"SERVO"],["setPinMode","digital",3,"PWM"],["setPinMode","digital",2,"OUTPUT"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 2, "INPUT"],["grove_rgblcd_begin",16,2]');
+            }
+        }
    
 </script>
 </body>
