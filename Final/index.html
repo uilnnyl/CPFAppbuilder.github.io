@@ -12,14 +12,14 @@
 <body>
     <h3>現在溫度：<span id="temp">none</span>。c</h3>
     <br/>
-    
+    <button id="b1" onclick="feedControl()">degree</button>
 
 <script>
 
      setup();
      cpf.request('["analogWrite",3,0]'); 
      var tempdata;
-
+     var degree = 0;
      function loop() {
             if (cpf) {
                 //tempdata get
@@ -38,6 +38,10 @@
             setTimeout(loop, 1000);
         }
         loop();
+
+        function feedControl(){
+            cpf.request('["analogWrite",4,90]');
+        }
         /*function waterControl(status) //control 
         {
             //cpf.set("socket d4",ststus);//可擇一
@@ -51,8 +55,7 @@
         }
         function setup() {
             if (cpf) {
-                cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"]');
-            }
+                cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "digital", 4, "SERVO"]');
         }
    
 </script>
