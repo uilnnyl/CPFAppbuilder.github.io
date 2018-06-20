@@ -29,8 +29,7 @@
                 
                 if (celsius > 28) //temp control fan
                 {
-                    for (i = 0; i < 255; i += 10) //風扇快
-                        cpf.request('["analogWrite",3,' + i + ']');
+                    cpf.request('["analogWrite",3,200]');
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
