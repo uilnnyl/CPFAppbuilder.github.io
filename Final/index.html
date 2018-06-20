@@ -27,9 +27,9 @@
                 celsius = toCelsius(tempdata);
                 document.getElementById("temp").innerHTML = celsius; //顯示在頁面上
                 
-                if (celsius > 28) //temp control fan
+                if (celsius > 30) //temp control fan
                 {
-                    cpf.request('["analogWrite",3,200]');
+                    cpf.request('["analogWrite",3,150]');
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
