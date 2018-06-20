@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Automatic Pets Cage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <h2>現在溫度：</h1>
+    <br/>
+    <p id="words">none</p>
+
+<script>
+
+    var value = cpf.get("temperature sensor");
+    var celsius = toCelsius(value);
+    ui.set("temperature sensor", celsius);
+
+    if(celsius <=28){
+        ui.set("fan",0);
+        cpf.set("fan",0);
+    }else {
+        ui.set("fan", 200);
+        cpf.set("fan", 200);
+    }
+
+    cpf.repeat();
+
+    function toCelsius(value){
+        var resistance= parseFloat((1023-value)*10000/value);
+        var temperature= 1/(Math.log(resistance/10000)/3975+1/298.15)-273.15;
+
+    return temperature.toFixed(2);
+    }
+
+    
+   
+</script>
+</body>
+
+</html>
