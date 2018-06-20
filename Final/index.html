@@ -17,8 +17,9 @@
 <script>
 
      setup();
+     cpf.request('["analogWrite",3,0]'); 
      var tempdata;
-     
+
      function loop() {
             if (cpf) {
                 //tempdata get
@@ -50,7 +51,7 @@
         }
         function setup() {
             if (cpf) {
-                cpf.setPinMode('["resetPin"],["setPinMode","digital",4,"SERVO"],["setPinMode","digital",3,"PWM"],["setPinMode","digital",2,"OUTPUT"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 2, "INPUT"],["grove_rgblcd_begin",16,2]');
+                cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"]');
             }
         }
    
