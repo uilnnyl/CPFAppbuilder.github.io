@@ -14,6 +14,7 @@
     <p id="words">none</p>
 
 <script>
+    ui.set("title","Auto Mode");
 
     var value = cpf.get("temperature sensor");
     var celsius = toCelsius(value);
@@ -22,9 +23,11 @@
     if(celsius <=28){
         ui.set("fan",0);
         cpf.set("fan",0);
+        document.getElementById("words").innerHTML = Result;
     }else {
         ui.set("fan", 200);
         cpf.set("fan", 200);
+        document.getElementById("words").innerHTML = Result;
     }
 
     cpf.repeat();
@@ -36,7 +39,7 @@
     return temperature.toFixed(2);
     }
 
-    
+
    
 </script>
 </body>
