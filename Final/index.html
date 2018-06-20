@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <h3>現在溫度：<span id="temp">none</span>。c</h3>
+    <h3>現在溫度：<span id="temp">none</span>℃</h3>
     <br/>
     <button id="b1" onclick="feedControl()">degree</button>
-    <button id="22" onClick="control()">degree2</button>
 
 <script>
 
@@ -41,18 +40,11 @@
         loop();
         
         //飼料盒角度
-       /* function feedControl(){ 
+        function feedControl(){ 
             //pf.request('["servo_pos_speed", 4, 0, 30]');
             cpf.request('["analogWrite", 4 , 90');
-        }*/
-        function control(){
-            cpf.request('["analogWrite", 4 , 90');
         }
-        /*function waterControl(status) //control 
-        {
-            //cpf.set("socket d4",ststus);//可擇一
-            cpf.request('["analogWrite",4,' + status + ']');
-        }*/
+        
         // Temperature
         function toCelsius(value) {
             var resistance = parseFloat((1023 - value) * 10000 / value);
