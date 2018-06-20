@@ -40,7 +40,7 @@
         loop();
 
         function feedControl(){
-            cpf.request('["analogWrite",4,90]');
+            cpf.request('["analogWrite",4,' + Math.abs(degree-180) + ']');
         }
         /*function waterControl(status) //control 
         {
