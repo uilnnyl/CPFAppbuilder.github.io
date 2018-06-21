@@ -12,7 +12,6 @@
 <body>
     <h3>現在溫度：<span id="temp">none</span>℃</h3>
     <br/>
-    <button id="b1" onclick="feedControl()">degree</button>
 
 <script>
 
@@ -34,7 +33,6 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-                feedControl(180);
             }
             setTimeout(loop, 1000);
         }
@@ -44,7 +42,6 @@
         //飼料盒角度
         function feedControl(status){
             cpf.request('["analogWrite", 4 ,' + status + ']');
-            delay(30000);
         }
 
         // Temperature
