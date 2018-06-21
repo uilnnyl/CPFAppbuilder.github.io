@@ -37,7 +37,14 @@
             setTimeout(loop, 1000);
         }
         loop();
-        
+
+     function loop() {
+            if (cpf) {
+                feedControl(90);
+            }
+            setTimeout(loop, 10000);
+        }
+        loop();
 
         //飼料盒角度
         function feedControl(status){
