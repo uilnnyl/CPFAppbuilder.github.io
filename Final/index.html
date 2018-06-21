@@ -34,17 +34,19 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
+                feedControl(180);
             }
             setTimeout(loop, 1000);
         }
         loop();
         
+
         //飼料盒角度
-        function feedControl(){ 
-            //pf.request('["servo_pos_speed", 4, 0, 30]');
-            cpf.request('["analogWrite", 4 , 90');
+        function feedControl(status){
+            cpf.request('["analogWrite", 4 ,' + status + ']');
+            delay(30000);
         }
-        
+
         // Temperature
         function toCelsius(value) {
             var resistance = parseFloat((1023 - value) * 10000 / value);
