@@ -20,11 +20,3 @@ html,body {
     height: 50px;
     margin: 0 35%;
 }
-
-.b1:nth-child(even) {
-    background: #30D5C8;
-}
-
-.b1:nth-child(odd) {
-    background: #FFF;
-}

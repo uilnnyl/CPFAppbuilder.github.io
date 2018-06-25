@@ -12,7 +12,7 @@
 <body>
     <h3>現在溫度：<span id="temp">none</span>℃</h3>
     <br/>
-    <button onclick="feed()">給料</button>
+    <button id="b1" onclick="feed()">給料</button>
 <script>
 
      setup();
@@ -44,11 +44,9 @@
         }
 
         function feedControl(){
-            //cpf.set("socket d4",90);
             cpf.request('["analogWrite",4,90]');
             console.log("90");
             cpf.sleep(2000);
-            //cpf.set("socket d4",0);
             cpf.request('["analogWrite",4,0]');
             console.log("0");
         }
