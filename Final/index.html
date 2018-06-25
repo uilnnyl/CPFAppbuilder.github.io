@@ -33,7 +33,11 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-                feedControl();
+                
+                if(celsius >30)
+                {
+                    feedControl();
+                }
             }
             setTimeout(loop, 1000);
         }
@@ -41,8 +45,7 @@
 
         //飼料盒角度
         function feedControl(){
-            cpf.request('["analogWrite", 4 , 90],["sleep", 10000]');
-            cpf.requset('["analogWrite", 4 , 0],["sleep", 10000]');
+            cpf.request('["analogWrite", 4 , 90]');
         }
 
         // Temperature
