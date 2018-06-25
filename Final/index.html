@@ -34,20 +34,21 @@
                     cpf.request('["analogWrite",3,0]'); 
                 }
                 
-                if(celsius >28)
-                {
-                    cpf.request('["analogWrite", 4 , 180]');
+                while(true){
+                    feedControl(180);
                 }
+                
             }
             setTimeout(loop, 1000);
         }
         loop();
 
-        //飼料盒角度
-        function feedControl(){
-            cpf.request('["analogWrite", 4 , 90]');
+        function feedControl(status) //control water
+        {
+            //cpf.set("socket d4", ststus); //可擇一
+            cpf.request('["analogWrite",4,' + status + ']');
         }
-
+      
         // Temperature
         function toCelsius(value) {
             var resistance = parseFloat((1023 - value) * 10000 / value);
