@@ -34,9 +34,9 @@
                     cpf.request('["analogWrite",3,0]'); 
                 }
                 
-                if(celsius >30)
+                if(celsius >28)
                 {
-                    feedControl();
+                    cpf.request('["analogWrite", 4 , 180]');
                 }
             }
             setTimeout(loop, 1000);
