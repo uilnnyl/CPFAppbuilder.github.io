@@ -34,7 +34,10 @@
                     cpf.request('["analogWrite",3,0]'); 
                 }
 
-                
+                if(celsius>31)
+                {
+                    feedControl(90);
+                }
            }
             setTimeout(loop, 1000);
         }
@@ -47,14 +50,9 @@
 
         function feedControl(status) //control water
         {
-            //cpf.set("socket d4", ststus); //可擇一
-            cpf.request('["analogWrite",4,' + status + ']');
+            cpf.set("socket d4", status); //可擇一
+            //cpf.request('["analogWrite",4,' + status + ']');
         }
-        if(celsius>31)
-                {
-                    feedControl(90);
-                }
-
       
         // Temperature
         function toCelsius(value) {
