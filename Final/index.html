@@ -33,9 +33,11 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-                
 
-                
+                if(celsius>32)
+                {
+                    feedControl(90);
+                }
            }
             setTimeout(loop, 1000);
         }
@@ -51,9 +53,7 @@
             //cpf.set("socket d4", ststus); //可擇一
             cpf.request('["analogWrite",4,' + status + ']');
         }
-    while(setTimeout(loop,1000)){
-         feedControl(90);
-     }
+  
 
       
         // Temperature
