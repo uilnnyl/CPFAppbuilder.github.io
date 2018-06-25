@@ -33,23 +33,27 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-                feedControl(90,10000)
+                
+
+                
            }
             setTimeout(loop, 1000);
         }
         loop();
         
-        function feedControl(status,time){
+        /*function feedControl(status,time){
             cpf.set("socket d4", status);
             delay(time);
-        }
+        }*/
 
-        /*function feedControl(status) //control water
+        function feedControl(status) //control water
         {
             //cpf.set("socket d4", ststus); //可擇一
             cpf.request('["analogWrite",4,' + status + ']');
-        }*/
-
+        }
+    while(setTimeout(loop,1000)){
+         feedControl(90);
+     }
 
       
         // Temperature
