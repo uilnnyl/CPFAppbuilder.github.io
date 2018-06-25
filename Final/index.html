@@ -29,11 +29,12 @@
                 if (celsius > 28) //temp control fan
                 {
                     cpf.request('["analogWrite",3,150]');
-                    feedControl(90);
+                    waterControl(180);
+                    
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
-                }       
+                }
            }
             setTimeout(loop, 1000);
         }
@@ -47,9 +48,9 @@
 
         //cpf.repeat();
 
-        function feedControl(status) 
+        function waterControl(status) //control water
         {
-            //cpf.set("socket d4", status); //可擇一
+            //cpf.set("socket d4", ststus); //可擇一
             cpf.request('["analogWrite",4,' + status + ']');
         }
 
@@ -62,7 +63,7 @@
         }
         function setup() {
             if (cpf) {
-                cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "digital", 4, "SERVO"],');
+                cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode","digital",3,"PWM"],["setPinMode", "analog", 1 , "INPUT"],["setPinMode", "analog", 2, "INPUT"],["setPinMode", "digital", 4, "SERVO"],');
         }
     }
    
