@@ -32,7 +32,6 @@
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
-                    waterControl(10);
                 }
            }
             setTimeout(loop, 2000);
@@ -48,6 +47,7 @@
             //cpf.set("socket d4",90);
             cpf.request('["analogWrite",4,90]');
             console.log("90");
+            Delay(3000);
             //cpf.set("socket d4",0);
             cpf.request('["analogWrite",4,0]');
             console.log("0");
