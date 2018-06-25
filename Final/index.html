@@ -33,16 +33,15 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-
-                feedControl(90);
-                
-            }
-            setTimeout(loop, 10000);
+                feedControl(90,10000)
+           }
+            setTimeout(loop, 1000);
         }
         loop();
         
-        function feedControl(){
-            cpf.set("socket d4", d4, 20);
+        function feedControl(status,time){
+            cpf.set("socket d4", status);
+            delay(time);
         }
 
         /*function feedControl(status) //control water
