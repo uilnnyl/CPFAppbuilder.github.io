@@ -31,7 +31,7 @@
                     cpf.request('["analogWrite",3,150]');
                     waterControl(180);
                     console.log("001");
-                    setTimeout(feedControl, 10000);
+                    setTimeout(feedControl, 5000);
                     console.log("002");
                 }
                 else {
@@ -45,7 +45,6 @@
         
         function feedControl(){
             cpf.set("socket d4",90);
-            cpf.sleep(10000);
             console.log("feed");
             cpf.set("socket d4",0);
         }
