@@ -33,7 +33,6 @@
                 else {
                     cpf.request('["analogWrite",3,0]'); 
                 }
-
            }
             setTimeout(loop, 1000);
         }
@@ -42,7 +41,10 @@
         function feedControl(){
             cpf.set("socket d4",90);
             delay(10000);
+            cpf.set("socket d4",0);
         }
+
+        cpf.repeat();
 
         /*function feedControl(status) //control water
         {
@@ -50,8 +52,6 @@
             cpf.request('["analogWrite",4,' + status + ']');
         }*/
 
-
-        cpf.repeat();
 
         // Temperature
         function toCelsius(value) {
