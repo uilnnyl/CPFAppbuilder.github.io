@@ -12,7 +12,7 @@
 <body>
     <h3>現在溫度：<span id="temp">none</span>℃</h3>
     <br/>
-    <button onclick="myFunction()">點我</button>
+    <button onclick="button()">點我</button>
 <script>
 
      setup();
@@ -29,11 +29,6 @@
                 if (celsius > 28) //temp control fan
                 {
                     cpf.request('["analogWrite",3,150]');
-                    /*waterControl(180);
-                    console.log("001");
-                    waterControl(90);
-                    console.log("002");
-                    console.log("003");*/
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
@@ -45,10 +40,10 @@
         loop();
         
 
-        function feedControl(){
-    	setInterval(function(){feedControl1},3000);
+        function button(){
+    	setInterval(function(){feedControl},3000);
         }
-        function feedControl1(){
+        function feedControl(){
             cpf.set("socket d4",90);
             console.log("90");
             cpf.set("socket d4",0);
