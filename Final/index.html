@@ -30,7 +30,7 @@
                 {
                     cpf.request('["analogWrite",3,150]');
                     waterControl(180);
-                    
+                    feedControl();
                 }
                 else {
                     cpf.request('["analogWrite",3,0]'); 
@@ -41,11 +41,11 @@
         }
         loop();
         
-        /*function feedControl(){
+        function feedControl(){
             cpf.set("socket d4",90);
-            delay(10000);
+            cpf.sleep(10000);
             cpf.set("socket d4",0);
-        }*/
+        }
 
         //cpf.repeat();
 
