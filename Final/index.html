@@ -34,26 +34,25 @@
                     cpf.request('["analogWrite",3,0]'); 
                 }
 
-                if(celsius>31)
-                {
-                    feedControl(90);
-                }
            }
             setTimeout(loop, 1000);
         }
         loop();
         
-        /*function feedControl(status,time){
-            cpf.set("socket d4", status);
-            delay(time);
+        function feedControl(){
+            cpf.set("socket d4",90);
+            delay(10000);
+        }
+
+        /*function feedControl(status) //control water
+        {
+            //cpf.set("socket d4", status); //可擇一
+            cpf.request('["analogWrite",4,' + status + ']');
         }*/
 
-        function feedControl(status) //control water
-        {
-            cpf.set("socket d4", status); //可擇一
-            //cpf.request('["analogWrite",4,' + status + ']');
-        }
-      
+
+        cpf.repeat();
+
         // Temperature
         function toCelsius(value) {
             var resistance = parseFloat((1023 - value) * 10000 / value);
