@@ -41,12 +41,15 @@
         
 
         function feed(){
-    	setInterval(function(){feedControl()},3000);
+    	setInterval(function(){feedControl()},5000);
         }
+
         function feedControl(){
-            cpf.set("socket d4",90);
+            //cpf.set("socket d4",90);
+            cpf.request('["analogWrite",4,90]');
             console.log("90");
-            cpf.set("socket d4",0);
+            //cpf.set("socket d4",0);
+            cpf.request('["analogWrite",4,0]');
             console.log("0");
         }
 
