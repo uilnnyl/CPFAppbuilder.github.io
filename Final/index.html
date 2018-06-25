@@ -12,7 +12,7 @@
 <body>
     <h3>現在溫度：<span id="temp">none</span>℃</h3>
     <br/>
-    <button onclick="button()">點我</button>
+    <button onclick="feed()">點我</button>
 <script>
 
      setup();
@@ -40,8 +40,8 @@
         loop();
         
 
-        function button(){
-    	setInterval(function(){feedControl},3000);
+        function feed(){
+    	setInterval(function(){feedControl()},3000);
         }
         function feedControl(){
             cpf.set("socket d4",90);
