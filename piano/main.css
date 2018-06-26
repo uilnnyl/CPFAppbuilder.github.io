@@ -39,10 +39,10 @@ html,body {
     box-sizing: border-box;
     margin: 20px 0;
 }
-/*
+
 .p0:nth-child(even) {
     background: #30D5C8;
-}*/
+}
 
 .p0:nth-child(odd) {
     background: #FFF;
