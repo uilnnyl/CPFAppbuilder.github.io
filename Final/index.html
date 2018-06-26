@@ -42,13 +42,13 @@
         
 
         function feed(){
-    	setInterval(function(){feedControl()},5000);
+    	setInterval(function(){feedControl()},8000);
         }
 
         function feedControl(){
             cpf.request('["analogWrite",4,90]');
             console.log("90");
-            cpf.sleep(3000);
+            cpf.sleep(2000);
             cpf.request('["analogWrite",4,0]');
             console.log("0");
         }
